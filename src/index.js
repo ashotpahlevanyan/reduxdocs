@@ -19,8 +19,6 @@ registerServiceWorker();
 
 let store = createStore(todoApp);
 
-
-
 // Log the initial state
 console.log(store.getState());
 
