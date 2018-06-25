@@ -25,12 +25,13 @@ function todos(state = [], action) {
 				...state,
 				{
 					text: action.text,
-					completed: false
+					completed: false,
+					id: Date.now()
 				}
 			];
 		case TOGGLE_TODO:
-			return state.map((todo, index) => {
-				if (index === action.index) {
+			return state.map((todo) => {
+				if (todo.id === action.id) {
 					return Object.assign({}, todo, {
 						completed: !todo.completed
 					})
@@ -39,7 +40,9 @@ function todos(state = [], action) {
 			});
 		case DELETE_TODO:
 			let newState = [...state];
-			newState.splice(action.index, 1);
+			let item = newState.filter(todo => todo.id === action.id)[0];
+			let index = newState.indexOf(item);
+			newState.splice(index, 1);
 			return newState;
 		default:
 			return state;
