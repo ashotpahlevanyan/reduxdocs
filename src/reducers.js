@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import {
 	ADD_TODO,
 	TOGGLE_TODO,
+	DELETE_TODO,
 	SET_VISIBILITY_FILTER,
 	VisibilityFilters
 } from './actions';
@@ -36,6 +37,10 @@ function todos(state = [], action) {
 				}
 				return todo;
 			});
+		case DELETE_TODO:
+			let newState = [...state];
+			newState.splice(action.index, 1);
+			return newState;
 		default:
 			return state;
 	}

@@ -3,3 +3,117 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.todoAppContainer {
+	padding: 10px;
+	margin: 20px auto;
+}
+
+.todoList {
+	font-size: 24px;
+	line-height: 1.5;
+	list-style: none;
+	padding-left: 0;
+}
+.todoList li {
+	color: blueviolet;
+	cursor: pointer;
+	width: 100%;
+	max-width: 400px;
+	padding: 5px 40px 5px 40px;
+	border: 1px solid blueviolet;
+	margin-bottom: 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	position: relative;
+}
+
+.todoList li.completed {
+	color: green;
+	border-color: green;
+	text-decoration: line-through;
+}
+.todoList li::before {
+	content: '\2715 ';
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+.todoList li.completed::before {
+	content: '\2713 ';
+}
+
+.todoList li .delete {
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	color: #fff;
+	background-color: red;
+	border: none;
+	padding: 0;
+	height: 30px;
+	width: 30px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 20px;
+	line-height: 1.2;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+.addTodo {
+	color: #fff;
+	padding: 5px 15px;
+	height: 40px;
+	border: none;
+	background-color: blueviolet;
+	font-weight: bold;
+	border-radius: 3px;
+	font-size: 20px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.todoInput {
+	height: 40px;
+	padding: 0 10px;
+	font-size: 20px;
+	border: 1px solid blueviolet;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: blueviolet;
+}
+
+.todoInput:focus, .todoInput:active {
+	background-color: blueviolet;
+	color: #fff;
+}
+
+.footer a {
+	color: blue;
+	font-size: 20px;
+	line-height: 1.5;
+	text-decoration: none;
+}
+
+.footer a:active, .footer a:hover, .footer span  {
+	color: blueviolet;
+	text-decoration: none;
+	font-size: 20px;
+	line-height: 1.5;
+	cursor: pointer;
+}
+
+.footer label {
+	color: orangered;
+	font-size: 20px;
+}

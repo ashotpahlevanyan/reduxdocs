@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Todo = ({ onClick, completed, text }) => (
+const Todo = ({ onClick, onDelete, completed, text }) => (
 	<li
 		onClick={onClick}
-	  style={{
-	  	textDecoration: completed ? 'line-through' : 'none'
-	  }}
+	  className={ completed ? 'completed' : ''}
 	>
 		{text}
+		<button className="delete" onClick={onDelete}>&#10006;</button>
 	</li>
 );
 
