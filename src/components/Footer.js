@@ -1,23 +1,30 @@
 import React from 'react';
 import FilterLink from '../containers/FilterLink';
+import { connect } from 'react-redux';
 
-const Footer = () => (
+const Footer = (state) => (
 	<p className="footer">
 		<label>Show:</label>
 		{' '}
 		<FilterLink filter="SHOW_ALL">
-			All
+			All ({state.todos.length})
 		</FilterLink>
 		{', '}
 		<FilterLink filter="SHOW_ACTIVE">
-			Active
+			Active ({state.todos.filter(t => !t.completed).length})
 		</FilterLink>
 		{', '}
 		<FilterLink filter="SHOW_COMPLETED">
-			Completed
+			Completed ({state.todos.filter(t => t.completed).length})
 		</FilterLink>
 	</p>
 );
 
-export default Footer;
+const mapStateToProps = state => {
+	return {
+		todos: [...state.todos]
+	}
+};
+
+export default connect(mapStateToProps)(Footer);
 
